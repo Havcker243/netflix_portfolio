@@ -5,6 +5,7 @@
   "devCommand": "npm start",
   "outputDirectory": "build",
   "env": {
-    "REACT_APP_DATO_CMS_TOKEN": "@dato_cms_token"
+    "REACT_APP_SUPABASE_URL": "@supabase_url",
+    "REACT_APP_SUPABASE_ANON_KEY": "@supabase_anon_key"
   }
 }

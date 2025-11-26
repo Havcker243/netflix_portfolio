@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import './Skills.css';
 
 import { FaReact, FaNodeJs, FaAws, FaDocker, FaGitAlt, FaJava, FaPython } from 'react-icons/fa';
 import { SiRubyonrails, SiTypescript, SiPostgresql, SiMysql, SiKubernetes, SiGooglecloud, SiSpringboot, SiPhp, SiNetlify, SiHeroku, SiHtml5, SiCss3, SiRabbitmq, SiImessage } from 'react-icons/si';
 import { Skill } from '../types';
+import { getSkills } from '../queries/getSkills';
 
 const iconMap: { [key: string]: JSX.Element } = {
   SiRubyonrails: <SiRubyonrails />,
@@ -26,7 +27,7 @@ const iconMap: { [key: string]: JSX.Element } = {
   FaPython: <FaPython />,
 };
 
-const skillsData: Skill[] = [
+const fallbackSkills: Skill[] = [
   {
     name: 'TypeScript + React',
     category: 'Frontend Engineering',
@@ -78,12 +79,33 @@ const skillsData: Skill[] = [
 ];
 
 const Skills: React.FC = () => {
+  const [skillsData, setSkillsData] = useState<Skill[]>(fallbackSkills);
 
-  const skillsByCategory = skillsData.reduce((acc: any, skill: any) => {
-    if (!acc[skill.category]) acc[skill.category] = [];
-    acc[skill.category].push(skill);
-    return acc;
-  }, {});
+  useEffect(() => {
+    let ignore = false;
+    async function loadSkills() {
+      try {
+        const remoteSkills = await getSkills();
+        if (!ignore && remoteSkills.length) {
+          setSkillsData(remoteSkills);
+        }
+      } catch (error) {
+        console.error('Failed to load skills from Supabase', error);
+      }
+    }
+    loadSkills();
+    return () => {
+      ignore = true;
+    };
+  }, []);
+
+  const skillsByCategory = useMemo(() => {
+    return skillsData.reduce<Record<string, Skill[]>>((acc, skill) => {
+      if (!acc[skill.category]) acc[skill.category] = [];
+      acc[skill.category].push(skill);
+      return acc;
+    }, {});
+  }, [skillsData]);
 
 
   return (
