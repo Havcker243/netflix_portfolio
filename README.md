@@ -62,6 +62,18 @@ npm install
 3. Ensure the DatoCMS token and any analytics keys are configured in the hosting environment.
 4. (Optional) Wire up GitHub Actions to build on every push.
 
+### Vercel
+1. Install the [Vercel CLI](https://vercel.com/docs/cli) and log in: `npm i -g vercel && vercel login`.
+2. Create a secret for the DatoCMS API token (or add it in the dashboard):
+   ```bash
+   vercel secrets add dato_cms_token <REACT_APP_DATO_CMS_TOKEN value>
+   ```
+3. Deploy (the included `vercel.json` points to CRA defaults):
+   ```bash
+   vercel --prod
+   ```
+   Vercel will run `npm run build` and serve the `build/` directory automatically.
+
 ## Contributing
 Issues and pull requests are welcome for UI polish, accessibility improvements, and new Netflix-inspired interactions. Please open an issue describing the change before submitting larger features.
 
