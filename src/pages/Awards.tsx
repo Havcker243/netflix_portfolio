@@ -13,7 +13,7 @@ const awards: Award[] = [
     title: 'Career Prep Fellow',
     org: 'Management Leadership for Tomorrow',
     year: '2025 cohort',
-    description: 'Selected for MLT's flagship fellowship to build executive presence, career strategy, and leadership alongside a national cohort of Black and Latinx technologists.',
+    description: `Selected for MLT's flagship fellowship to build executive presence, career strategy, and leadership alongside a national cohort of Black and Latinx technologists.`,
   },
   {
     title: 'Brilliant Black Minds Ambassador',
@@ -55,7 +55,7 @@ const awards: Award[] = [
     title: 'NSBE / BVCC / Amazon Campus Prep',
     org: 'Leadership & Service',
     year: 'Ongoing',
-    description: 'Serve as a Student Leader for the BVCC SWE track, engage with NSBE Nashville, and completed Amazon's Campus Prep Series to mentor peers.',
+    description: `Serve as a Student Leader for the BVCC SWE track, engage with NSBE Nashville, and completed Amazon's Campus Prep Series to mentor peers.`,
   },
 ];
 
