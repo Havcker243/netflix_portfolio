@@ -17,12 +17,8 @@ const ProfilePage: React.FC = () => {
     : 'recruiter';
   return (
     <>
-      <div
-        className="profile-page"
-        style={{ backgroundImage: `url(${backgroundGif})` }}
-      >
-        <ProfileBanner
-        />
+      <div className="profile-page">
+        <ProfileBanner backgroundImageUrl={backgroundGif} />
       </div>
       <TopPicksRow profile={profile} />
       <ContinueWatching profile={profile} />

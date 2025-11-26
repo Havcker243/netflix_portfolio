@@ -17,7 +17,12 @@ const bannerData: ProfileBannerType = {
     "Backend-focused CS student at Fisk University (GPA 3.58) with experience at Google, Ashoka, HP's Future of Work Academy, and Propel2Excel. I build AI-powered tools, distributed systems, and developer experiences that keep accessibility and impact at the center.",
 };
 
-const ProfileBanner: React.FC = () => {
+interface ProfileBannerProps {
+  backgroundImageUrl?: string;
+}
+
+const ProfileBanner: React.FC<ProfileBannerProps> = ({ backgroundImageUrl }) => {
+  const heroBackground = backgroundImageUrl ?? bannerData.backgroundImage.url;
   const handlePlayClick = () => {
     window.open(bannerData.resumeLink.url, '_blank');
   };
@@ -30,7 +35,7 @@ const ProfileBanner: React.FC = () => {
     <div
       className="profile-banner"
       style={{
-        backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.9) 100%), url(${bannerData.backgroundImage.url})`,
+        backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.9) 100%), url(${heroBackground})`,
       }}
     >
       <div className="banner-content">

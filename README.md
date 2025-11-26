@@ -1,123 +1,69 @@
-## 🌟 Sumanth Samala's Netflix inspired Portfolio 🌟 - https://sumanthsamala.com/
+﻿# Netflix Inspired Portfolio
 
-Welcome to my personal portfolio project! 🚀 This website showcases my work, skills, and experiences in web development. It's designed to be lightweight, customizable, and professional while maintaining an approachable style.
+A Netflix-style single-page application that guides visitors through a cinematic intro, persona-based profile selector, and content-rich sections (experience, projects, skills, awards, etc.). Content is fetched from DatoCMS so updates happen without redeploying the frontend.
 
-Explore specific subdomains tailored to different tech stacks:
+![Preview](image.png)
 
-- 🌟 [java.sumanthsamala.com](https://java.sumanthsamala.com/) for Java Spring Boot-related work.
-- 🌟 [node.sumanthsamala.com](https://node.sumanthsamala.com/) for Node.js and backend development.
-- 🌟 [frontend.sumanthsamala.com](https://frontend.sumanthsamala.com/) for frontend development expertise.
-- 🌟 [ror.sumanthsamala.com](https://ror.sumanthsamala.com/) for Ruby on Rails projects.
+## Features
+- **Netflix intro + profile gate** that plays custom audio and routes visitors through persona tiles (Recruiter, Developer, Stalker, Adventurer).
+- **Routed experience** powered by React Router with dedicated pages for work permits, experience, recommendations, skills, projects, music, blogs, reading, certifications, awards, and contact.
+- **CMS-driven data** via typed GraphQL queries so copy, media, and CTAs can be managed in DatoCMS.
+- **Shared layout & navbar** to keep navigation consistent across every page.
+- **Responsive styling** tuned for both recruiting teams on laptops and visitors on mobile.
 
-![Screenshot from 2024-12-08 19-19-06](https://github.com/user-attachments/assets/f8220485-16ec-48cf-8cb2-7853540c5724)
+## Tech Stack
+- React 18 + TypeScript + React Router
+- Custom CSS + Tailwind-inspired utility styles
+- GraphQL + `graphql-request` for DatoCMS
+- Create React App toolchain (`react-scripts`)
+- Jest + React Testing Library (default CRA setup)
 
----
-
-## ✨ Features
-
-- 🌍 **Dynamic Content**: Powered by [DatoCMS](https://www.datocms.com) for easy content management.
-- ⚡ **Fast & Responsive**: Built with modern web technologies for seamless performance.
-- 🎨 **Customizable**: Modular and easy to adapt to your own needs.
-- 📈 **Professional Yet Personal**: Highlights projects, skills, and achievements.
-- 🎨 It can support various por
-
----
-
-## 🛠️ Tech Stack
-
-This portfolio is built with love and:
-
-- ⚛️ **React** (Frontend)
-- ☁️ **AWS S3 & CloudFront** (Hosting and CDN)
-- 🖌️ **Tailwind CSS** (Styling)
-- 🛡️ **DatoCMS** (Content Management)
-- 🧩 **Other Cool Tools**: GitHub Actions
-
----
-
-## ⭐ Show Your Support
-
-If you find this project helpful or inspiring, give it a ⭐ on GitHub—it means the world to me! 🌟
-
-Happy coding! 💻✨
-
----
-
-## 📚 Getting Started
-
-Want to set this up locally? Follow these steps:
-
-1. **Clone the Repository**: Copy the repository to your local system.
-2. **Install Dependencies**: Use a package manager to install the required dependencies.
-
-```bash
-nvm install 18
-nvm use 18
+## Project Structure
+```
+src/
+|-- App.tsx          # Route map for every Netflix-style page
+|-- NetflixTitle.tsx # Intro animation + sound
+|-- browse/          # Persona selector
+|-- components/      # Reusable UI (navbar, profile card, etc.)
+|-- pages/           # Individual content pages
+|-- profilePage/     # Dynamic profile entry
+|-- queries/         # GraphQL clients + typed queries
+`-- types.ts         # Shared TypeScript interfaces
 ```
 
-After upgrading Node.js, clear your node_modules and reinstall:
-
+## Getting Started
 ```bash
-rm -rf node_modules
-npm cache clean --force
+git clone <repo>
+cd netflix_portfolio
+nvm install 18
+nvm use 18
 npm install
 ```
 
-3. **Configure Environment Variables**: Create a `.env` file and set up the necessary API keys and configurations.
-4. **Run the Project**: Start the development server.
+1. Create a `.env` file and add your DatoCMS API token:
+   ```
+   REACT_APP_DATO_CMS_TOKEN=<token>
+   ```
+2. Start the development server:
+   ```bash
+   npm start
+   ```
+3. Open `http://localhost:3000` to view the intro and browse the pages.
 
-```bash
-npm start
-```
+## Available Scripts
+- `npm start` – run the dev server with hot reload.
+- `npm run build` – create a production build in `build/`.
+- `npm test` – launch CRA’s Jest test runner.
+- `npm run eject` – expose CRA config (irreversible).
 
-5. **Visit the Local Server**: Open your browser and navigate to the local server URL.
-   ![alt text](image.png)
+## Deployment
+1. Run `npm run build`.
+2. Upload the `build/` directory to your hosting provider (e.g., AWS S3 + CloudFront).
+3. Ensure the DatoCMS token and any analytics keys are configured in the hosting environment.
+4. (Optional) Wire up GitHub Actions to build on every push.
 
----
-
-## 🤝 Contribution Guidelines
-
-Contributions are welcome and appreciated! 🥳 To contribute:
-
-1. Fork the repository.
-2. Create a new branch for your feature or fix.
-3. Commit your changes with a descriptive message.
-4. Push your changes to your branch.
-5. Open a Pull Request. 🎉
-
----
-
-## 🐛 Issues and Feature Requests
-
-Found a bug? Have a feature in mind? 🤔 Feel free to raise an issue or suggest a feature!
-
-1. Go to the **Issues** tab in the repository.
-2. Click **New Issue**.
-3. Provide a clear description of the bug or feature request.
-4. If applicable, include screenshots or steps to reproduce the issue.
-
-Your feedback is valuable and helps make this project better for everyone. Thank you for contributing!
+## Contributing
+Issues and pull requests are welcome for UI polish, accessibility improvements, and new Netflix-inspired interactions. Please open an issue describing the change before submitting larger features.
 
 ---
-
-## 🌟 Acknowledgments
-
-- Thanks to [DatoCMS](https://www.datocms.com) for powering the dynamic content.
-- Inspired by countless developers in the open-source community. 💻
-- Special shoutout to all contributors—you rock! 🤘
-
----
-
-## 📧 Contact Me
-
-- 💼 [Portfolio Website](https://sumanthsamala.com)
-- 📧 Email: [chintusamala96@gmail.com](mailto:chintusamala96@gmail.com)
-- 🔗 [LinkedIn](https://uk.linkedin.com/in/sumanth-samala-82431161)
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License. Feel free to use it, modify it, and share it! 🌈
-
----
+MIT License.
