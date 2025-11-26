@@ -1,58 +1,50 @@
-// Reading.tsx
-
 import React from 'react';
 import './Reading.css';
-import atomicHabits from '../images/atomic_habits.jpg';
-import richDadPoorDad from '../images/rich_dad_poor_dad.jpg';
-import alchemist from '../images/alchemist.jpg';
-import eatThatFrog from '../images/eat_that_frog.jpg';
-import vijayanikiAidhuMetlu from '../images/vijayaniki_aidu_metlu.jpg';
-import venneloAdapilla from '../images/vennelo_adapilla.jpeg';
 
 const books = [
   {
-    title: "Atomic Habits",
-    author: "James Clear",
-    imgSrc: atomicHabits,
-    description: "A practical guide to building good habits and breaking bad ones.",
+    title: 'Show Your Work!',
+    author: 'Austin Kleon',
+    imgSrc: 'https://images.unsplash.com/photo-1455885666463-1ea8f31e6617?auto=format&fit=crop&w=600&q=80',
+    description: 'Reminds me to narrate the journey and invite other first-gen engineers into tech.',
   },
   {
-    title: "Rich Dad Poor Dad",
-    author: "Robert Kiyosaki",
-    imgSrc: richDadPoorDad,
-    description: "An eye-opener on wealth, assets, and financial literacy.",
+    title: 'Range',
+    author: 'David Epstein',
+    imgSrc: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=600&q=80',
+    description: 'Proof that trying many tracks (hardware, AI, leadership) makes me a better builder.',
   },
   {
-    title: "The Alchemist",
-    author: "Paulo Coelho",
-    imgSrc: alchemist,
-    description: "A magical journey of following one's dreams.",
+    title: 'Creative Confidence',
+    author: 'Tom & David Kelley',
+    imgSrc: 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=600&q=80',
+    description: 'Design thinking inspiration for everything from Studyme to community workshops.',
   },
   {
-    title: "Eat That Frog",
-    author: "Brian Tracy",
-    imgSrc: eatThatFrog,
-    description: "A motivational book on overcoming procrastination.",
+    title: 'The Big Leap',
+    author: 'Gay Hendricks',
+    imgSrc: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0ea?auto=format&fit=crop&w=600&q=80',
+    description: 'Helps me quiet impostor syndrome before major interviews or hackathons.',
   },
   {
-    title: "Vijayaniki Aidhu Metlu",
-    author: "Yandamoori Veerendranath",
-    imgSrc: vijayanikiAidhuMetlu,
-    description: "An inspirational Telugu book for personal growth.",
+    title: 'Stay True',
+    author: 'Hua Hsu',
+    imgSrc: 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=600&q=80',
+    description: 'A reflection on friendship and heritage that grounds my leadership work.',
   },
   {
-    title: "Vennelo Adapilla",
-    author: "Yandamoori Veerendranath",
-    imgSrc: venneloAdapilla,
-    description: "A classic Telugu romantic novel that touches the heart.",
+    title: 'Engineering Empathy',
+    author: 'Oludolapo Adegbesan (in progress)',
+    imgSrc: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80',
+    description: 'Notes from fellowships, mentorship, and the inclusive tools I am building next.',
   },
 ];
 
 const Reading: React.FC = () => {
   return (
     <div className="reading-container">
-      <h2 className="reading-title">📚 Books That Shaped My Journey</h2>
-      <p className="reading-intro">These books have influenced my perspectives, motivation, and self-growth.</p>
+      <h2 className="reading-title">Books that keep me curious</h2>
+      <p className="reading-intro">I rotate between tech craft, creativity, and memoirs so my engineering stays human.</p>
       <div className="books-grid">
         {books.map((book, index) => (
           <div key={index} className="book-card" style={{ '--delay': `${index * 0.1}s` } as React.CSSProperties}>

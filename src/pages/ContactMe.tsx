@@ -1,38 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './ContactMe.css';
 import profilePic from '../images/sumanth.jpeg';
 import { FaEnvelope, FaPhoneAlt, FaCoffee, FaLinkedin } from 'react-icons/fa';
 import { ContactMe as IContactMe } from '../types';
-import { getContactMe } from '../queries/getContactMe';
+
+const contactInfo: IContactMe = {
+  profilePicture: { url: profilePic },
+  name: 'Oludolapo Adegbesan',
+  title: 'Backend Engineer · CS @ Fisk University',
+  summary: 'Prev @ Google, Ashoka, Propel2Excel · Building AI copilots, developer tooling, and equitable communities.',
+  companyUniversity: 'Fisk University · B.S. Computer Science · Dec 2026',
+  linkedinLink: 'https://www.linkedin.com/in/oludolapo-adegbesan-3168a7218/',
+  email: 'dolapoadegbesan301@gmail.com',
+  phoneNumber: '+1 (509) 919-5430',
+};
 
 const ContactMe: React.FC = () => {
-
-  const [userData, setUserData] = useState<IContactMe>()
-
-  useEffect(() => {
-    async function fetchUserData() {
-      const data = await getContactMe();
-      setUserData(data);
-    }
-
-    fetchUserData();
-  }, []);
-
-  if (!userData) return <div>Loading...</div>;
-
   return (
     <div className="contact-container">
       <div className="linkedin-badge-custom">
-        <img src={profilePic} alt="Sumanth Samala" className="badge-avatar" />
+        <img src={profilePic} alt="Oludolapo Adegbesan" className="badge-avatar" />
         <div className="badge-content">
-          <h3 className="badge-name">{userData?.name}</h3>
-          <p className="badge-title">{userData.title}</p>
+          <h3 className="badge-name">{contactInfo.name}</h3>
+          <p className="badge-title">{contactInfo.title}</p>
           <p className="badge-description">
-            {userData.summary}
+            {contactInfo.summary}
           </p>
-          <p className="badge-company">{userData.companyUniversity}</p>
+          <p className="badge-company">{contactInfo.companyUniversity}</p>
           <a
-            href={userData.linkedinLink}
+            href={contactInfo.linkedinLink}
             target="_blank"
             rel="noopener noreferrer"
             className="badge-link"
@@ -47,14 +43,14 @@ const ContactMe: React.FC = () => {
       <div className="contact-details">
         <div className="contact-item">
           <FaEnvelope className="contact-icon" />
-          <a href={`mailto:${userData.email}`} className="contact-link">
-            {userData.email}
+          <a href={`mailto:${contactInfo.email}`} className="contact-link">
+            {contactInfo.email}
           </a>
         </div>
         <div className="contact-item">
           <FaPhoneAlt className="contact-icon" />
-          <a href={`tel:${userData.phoneNumber}`} className="contact-link">
-            {userData.phoneNumber}
+          <a href={`tel:${contactInfo.phoneNumber}`} className="contact-link">
+            {contactInfo.phoneNumber}
           </a>
         </div>
         <div className="contact-fun">

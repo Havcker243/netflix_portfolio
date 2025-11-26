@@ -85,6 +85,46 @@
   color: #ccc;
 }
 
+.spotify-section {
+  margin-top: 50px;
+  text-align: left;
+}
+
+.spotify-section h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.spotify-embeds {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.spotify-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(229, 9, 20, 0.25);
+  animation: fadeIn 0.6s ease forwards;
+  opacity: 0;
+}
+
+.spotify-card h4 {
+  margin: 0 0 8px;
+  color: #fff;
+}
+
+.spotify-card p {
+  margin: 0 0 12px;
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.spotify-iframe iframe {
+  border-radius: 12px;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }

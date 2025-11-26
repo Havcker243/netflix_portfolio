@@ -1,36 +1,43 @@
 import React from 'react';
 import './Blogs.css';
-import { FaMedium, FaDev } from 'react-icons/fa';
+import { FaMedium, FaDev, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const blogs = [
   {
-    title: "Make Your Rails Console Look Better",
-    platform: "Medium",
-    icon: <FaMedium />,
-    link: "https://medium.com/@chintusamala96/make-your-rails-console-look-better-510988d40566",
-    description: "Learn tips to customize your Rails console for a better experience.",
+    title: 'Building Studyme (AI Study Companion)',
+    platform: 'GitHub Notes',
+    icon: <FaGithub />,
+    link: 'https://github.com/Havcker243',
+    description: 'Architecture sketches, caching experiments, and evaluation prompts for my document assistant.',
   },
   {
-    title: "Docker Fundas - My Version",
-    platform: "Medium",
-    icon: <FaMedium />,
-    link: "https://medium.com/@chintusamala96/docker-fundas-my-version-7b9262bd90d4",
-    description: "An introductory guide to Docker fundamentals from my perspective.",
-  },
-  {
-    title: "Grape Gem in Ruby on Rails: Handling User Model and API Endpoint",
-    platform: "Dev.to",
+    title: 'PathFinderGPT Create-a-thon Recap',
+    platform: 'Portfolio',
     icon: <FaDev />,
-    link: "https://dev.to/samalasumanth0262/grape-gem-in-ruby-on-rails-handling-user-model-and-api-endpoint-g6d",
-    description: "A guide to using the Grape gem for API development in Ruby on Rails.",
+    link: 'https://havcker243.github.io/Portfolio/',
+    description: 'How our team prototyped career maps for HBCU students with Flask, React, and OpenAI.',
+  },
+  {
+    title: 'Inclusive Engineering Dispatch',
+    platform: 'LinkedIn',
+    icon: <FaLinkedin />,
+    link: 'https://www.linkedin.com/in/oludolapo-adegbesan-3168a7218/',
+    description: 'Stories from Brilliant Black Minds, MLT, and the communities that shaped my voice.',
+  },
+  {
+    title: 'Multicloud-in-the-making',
+    platform: 'Medium (coming soon)',
+    icon: <FaMedium />,
+    link: 'https://medium.com/@havcker243',
+    description: 'Drafting lessons from deploying on AWS, Firebase, and GCP as a student engineer.',
   },
 ];
 
 const Blogs: React.FC = () => {
   return (
     <div className="blogs-container">
-      <h2 className="blogs-title">✍️ My Blog Posts</h2>
-      <p className="blogs-intro">A collection of my thoughts and tutorials on software development.</p>
+      <h2 className="blogs-title">Writing & reflections</h2>
+      <p className="blogs-intro">Where I unpack the builds, fellowships, and community work behind this portfolio.</p>
       <div className="blogs-grid">
         {blogs.map((blog, index) => (
           <a href={blog.link} key={index} target="_blank" rel="noopener noreferrer" className="blog-card" style={{ '--delay': `${index * 0.2}s` } as React.CSSProperties}>
