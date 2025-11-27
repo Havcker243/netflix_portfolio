@@ -1,4 +1,4 @@
-﻿import { fetchSupabaseTable } from './datoCMSClient';
+import { fetchSupabaseTable } from '../lib/supabaseClient';
 import { Certification } from '../types';
 
 export async function getCertifications(): Promise<Certification[]> {

@@ -1,4 +1,4 @@
-﻿import { fetchSupabaseTable } from './datoCMSClient';
+import { fetchSupabaseTable } from '../lib/supabaseClient';
 import { Project } from '../types';
 
 export async function getProjects(): Promise<Project[]> {

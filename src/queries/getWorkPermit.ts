@@ -1,4 +1,4 @@
-import { fetchSupabaseSingle } from './datoCMSClient';
+import { fetchSupabaseSingle } from '../lib/supabaseClient';
 import { WorkPermit } from '../types';
 
 export async function getWorkPermit(): Promise<WorkPermit | null> {
