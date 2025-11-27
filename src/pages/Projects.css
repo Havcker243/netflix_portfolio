@@ -1,5 +1,5 @@
 .projects-container {
-  padding: 120px 20px;
+  padding: 140px 24px;
   background-color: #141414;
   color: #fff;
 }
@@ -9,8 +9,8 @@
 }
 
 .project-section h3 {
-  margin-bottom: 20px;
-  font-size: 1.6rem;
+  margin-bottom: 24px;
+  font-size: 2rem;
 }
 
 .projects-cta {
@@ -21,19 +21,20 @@
   gap: 20px;
   margin-bottom: 40px;
   background: #1f1f1f;
-  padding: 20px 30px;
+  padding: 28px 36px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .projects-cta h2 {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
 }
 
 .projects-cta p {
-  margin: 6px 0 0;
+  margin: 8px 0 0;
   color: #b3b3b3;
+  font-size: 1.05rem;
 }
 
 .github-link {
@@ -55,7 +56,7 @@
 }
 
 .projects-status {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: #b3b3b3;
   margin-bottom: 15px;
 }
@@ -67,7 +68,7 @@
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  gap: 28px;
   justify-content: center;
 }
 
@@ -101,20 +102,20 @@
 }
 
 .project-details {
-  padding: 20px;
+  padding: 24px;
 }
 
 .project-details h3 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #e74e56;
   margin-bottom: 10px;
   color: #e50914;
 }
 
 .project-details p {
-  font-size: 0.8rem;
-  margin-bottom: 15px;
-  line-height: 1.2rem;
+  font-size: 1rem;
+  margin-bottom: 18px;
+  line-height: 1.6;
 }
 
 .tech-used {
@@ -131,7 +132,7 @@
   border-radius: 12px;
   background: #2c2c2c;
   color: #fff;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
@@ -151,13 +152,13 @@
 .repo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
+  gap: 26px;
 }
 
 .repo-card {
   background: #1f1f1f;
   border-radius: 12px;
-  padding: 20px;
+  padding: 24px;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
   display: flex;
   flex-direction: column;
@@ -173,20 +174,22 @@
 
 .repo-card-header h4 {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.35rem;
 }
 
 .language-pill {
   border: 1px solid #e50914;
   border-radius: 999px;
-  padding: 2px 12px;
-  font-size: 0.8rem;
+  padding: 4px 14px;
+  font-size: 0.9rem;
 }
 
 .repo-description {
   margin: 0;
   color: #cfcfcf;
-  min-height: 48px;
+  min-height: 56px;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .repo-topics {
@@ -196,14 +199,14 @@
 }
 
 .repo-topics span {
-  font-size: 0.75rem;
-  padding: 4px 10px;
+  font-size: 0.85rem;
+  padding: 4px 12px;
   background: rgba(255, 255, 255, 0.08);
   border-radius: 999px;
 }
 
 .repo-meta {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: #a0a0a0;
   display: flex;
   gap: 12px;
@@ -220,9 +223,9 @@
   color: #fff;
   text-decoration: none;
   background: #e50914;
-  padding: 8px 14px;
+  padding: 10px 16px;
   border-radius: 8px;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 

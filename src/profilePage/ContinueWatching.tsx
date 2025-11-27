@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaPlay } from 'react-icons/fa';
 import './ContinueWatching.css';
 
 type ProfileType = 'recruiter' | 'developer' | 'stalker' | 'adventurer';
@@ -44,12 +45,19 @@ const ContinueWatching: React.FC<ContinueWatchingProps> = ({ profile }) => {
 
   return (
     <div className="continue-watching-row">
-      <h2 className="row-title">Continue Watching for {profile}</h2>
-      <div className="card-row">
+      <div className="row-header">
+        <h2 className="row-title">Continue Watching for {profile}</h2>
+        <p className="row-subtitle">Jump back into the stories you left on pause.</p>
+      </div>
+      <div className="card-row" role="list">
         {continueWatching.map((pick, index) => (
-          <Link to={pick.link} key={index} className="pick-card">
-            <img src={pick.imgSrc} alt={pick.title} className="pick-image" />
+          <Link to={pick.link} key={index} className="pick-card" role="listitem">
+            <img src={pick.imgSrc} alt={pick.title} className="pick-image" loading="lazy" />
+            <div className="pick-gradient" />
             <div className="overlay">
+              <button className="play-pill" aria-label={`Play ${pick.title}`}>
+                <FaPlay />
+              </button>
               <div className="pick-label">{pick.title}</div>
             </div>
           </Link>

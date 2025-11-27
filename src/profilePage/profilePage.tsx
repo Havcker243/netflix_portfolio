@@ -16,13 +16,21 @@ const ProfilePage: React.FC = () => {
     ? (profileName as ProfileType)
     : 'recruiter';
   return (
-    <>
-      <div className="profile-page">
+    <main className="profile-shell">
+      <section className="profile-banner-wrapper">
         <ProfileBanner backgroundImageUrl={backgroundGif} />
-      </div>
-      <TopPicksRow profile={profile} />
-      <ContinueWatching profile={profile} />
-    </>
+      </section>
+      <section className="profile-section">
+        <div className="profile-section-inner">
+          <TopPicksRow profile={profile} />
+        </div>
+      </section>
+      <section className="profile-section">
+        <div className="profile-section-inner">
+          <ContinueWatching profile={profile} />
+        </div>
+      </section>
+    </main>
   );
 };
 

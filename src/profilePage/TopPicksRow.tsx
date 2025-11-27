@@ -52,18 +52,26 @@ const TopPicksRow: React.FC<TopPicksRowProps> = ({ profile }) => {
 
   return (
     <div className="top-picks-row">
-      <h2 className="row-title">Today's Top Picks for {profile}</h2>
-      <div className="card-row">
-      {topPicks.map((pick, index) => (
-          <div 
-            key={index} 
-            className="pick-card" 
+      <div className="row-header">
+        <h2 className="row-title">Top Picks for {profile}</h2>
+        <p className="row-subtitle">Curated highlights tailored for this persona.</p>
+      </div>
+      <div className="card-row" role="list">
+        {topPicks.map((pick, index) => (
+          <div
+            key={index}
+            className="pick-card"
+            role="listitem"
             onClick={() => navigate(pick.route)}
-            style={{ animationDelay: `${index * 0.2}s` }} // Adding delay based on index
+            style={{ animationDelay: `${index * 0.15}s` }}
           >
-            <img src={pick.imgSrc} alt={pick.title} className="pick-image" />
+            <img src={pick.imgSrc} alt={pick.title} className="pick-image" loading="lazy" />
+            <div className="pick-gradient" />
             <div className="overlay">
-              <div className="pick-label">{pick.title}</div>
+              <div className="pick-meta">
+                <span className="pick-icon">{pick.icon}</span>
+                <span className="pick-label">{pick.title}</span>
+              </div>
             </div>
           </div>
         ))}
