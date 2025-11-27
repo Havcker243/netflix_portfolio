@@ -6,11 +6,19 @@ type TimelineRow = Omit<TimelineItem, "summaryPoints"> & {
 };
 
 export async function getTimeline(): Promise<TimelineItem[]> {
-  console.log('getTimeline invoked');
+  console.log("getTimeline invoked");
   console.log("getTimeline() called");
 
-  const selectString =
-    "id, timeline_type as timelineType, name, title, tech_stack as techStack, summary_points as summaryPoints, date_range as dateRange, sort_order as sortOrder";
+ const selectString = `
+  id,
+  timeline_type:timelineType,
+  name,
+  title,
+  tech_stack as techStack,
+  summary_points as summaryPoints,
+  date_range as dateRange,
+  sort_order as sortOrder
+`;
 
   console.log("SELECT STRING BEING SENT TO SUPABASE:", selectString);
 
