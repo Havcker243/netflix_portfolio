@@ -85,15 +85,7 @@ const WorkExperience: React.FC = () => {
       try {
         const items = await getTimeline();
         if (!ignore && items.length) {
-          const normalized = items.map(item => ({
-            ...item,
-            summaryPoints: Array.isArray(item.summaryPoints)
-              ? item.summaryPoints
-              : typeof item.summaryPoints === "string"
-                ? item.summaryPoints.split("\n").filter(Boolean)
-                : [],
-          }));
-          setTimelineData(normalized);
+          setTimelineData(items);
         }
       } catch (error) {
         console.error("Unable to load timeline from Supabase", error);

@@ -7,10 +7,10 @@ import { ContactMe as IContactMe } from '../types';
 const contactInfo: IContactMe = {
   profilePicture: { url: profilePic },
   name: 'Oludolapo Adegbesan',
-  title: 'Backend Engineer / CS @ Fisk University',
+  title: 'Full Stack AI & Cloud Software Engineer',
   summary:
-    'Previously built AI copilots at Google, Ashoka, and Propel2Excel. I love crafting developer tools that support equitable communities.',
-  companyUniversity: 'Fisk University / B.S. Computer Science / Dec 2026',
+    'Experienced software engineer focused on distributed systems, AI copilots, and cloud-native services. I build LLM-powered Chrome extensions, LangChain automation, and React experiences backed by Python, TypeScript, Flask, Node.js, MongoDB, Redis, and AWS. From Gemini-driven privacy tooling at Google to GPT copilots for HP FOWA, I ship scalable APIs, craft amazing developer experiences, and center inclusive design in every release.',
+  companyUniversity: 'Fisk University · B.S. Computer Science · Dec 2026',
   linkedinLink: 'https://www.linkedin.com/in/oludolapo-adegbesan-3168a7218/',
   email: 'dolapoadegbesan301@gmail.com',
   phoneNumber: '+1 (509) 919-5430',
@@ -20,12 +20,9 @@ const ContactMe: React.FC = () => {
   return (
     <div className="contact-container">
       <section className="contact-hero">
-        <p className="hero-eyebrow">Hire Me</p>
-        <h1>Let&rsquo;s build products people keep talking about.</h1>
-        <p className="hero-copy">
-          I blend backend engineering, AI copilots, and community-first storytelling. If you need someone who can ship
-          quickly, document rigorously, and keep teams energized, I&rsquo;m ready.
-        </p>
+        <p className="hero-eyebrow">Now Booking New Work</p>
+        <h1>Full Stack AI & Cloud Software Engineer</h1>
+        <p className="hero-copy">{contactInfo.summary}</p>
         <div className="hero-buttons">
           <a href={`mailto:${contactInfo.email}`} className="hero-button primary">
             Email Me

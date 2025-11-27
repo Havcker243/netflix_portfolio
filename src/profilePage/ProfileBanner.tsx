@@ -8,13 +8,13 @@ const bannerData: ProfileBannerType = {
   backgroundImage: {
     url: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80',
   },
-  headline: 'Oludolapo Adegbesan',
+  headline: 'Full Stack AI & Cloud Software Engineer',
   resumeLink: {
     url: '/Adegbesan_Oludolapo_Resume__2_.pdf',
   },
   linkedinLink: 'https://www.linkedin.com/in/oludolapo-adegbesan-3168a7218/',
   profileSummary:
-    "Backend-focused CS student at Fisk University (GPA 3.58) with experience at Google, Ashoka, HP's Future of Work Academy, and Propel2Excel. I build AI-powered tools, distributed systems, and developer experiences that keep accessibility and impact at the center.",
+    'Experienced software engineer focused on distributed systems, AI copilots, and cloud-native services. I build LLM-powered Chrome extensions, LangChain automation, and React experiences backed by Python, TypeScript, Flask, Node.js, MongoDB, Redis, and AWS. From Gemini-driven privacy tooling at Google to GPT copilots for HP FOWA, I ship scalable APIs, craft amazing developer experiences, and center inclusive design in every release.',
 };
 
 interface ProfileBannerProps {

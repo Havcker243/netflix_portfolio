@@ -23,20 +23,15 @@
 }
 
 .card-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
-  overflow-x: auto;
-  padding-bottom: 1rem;
-  scrollbar-width: none;
-}
-
-.card-row::-webkit-scrollbar {
-  display: none;
+  padding-bottom: 0.75rem;
 }
 
 .pick-card {
   position: relative;
-  flex: 0 0 260px;
+  width: 100%;
   border-radius: 14px;
   overflow: hidden;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
@@ -100,7 +95,15 @@
 
 @media (max-width: 768px) {
   .card-row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
     padding-right: 1rem;
+    scrollbar-width: none;
+  }
+
+  .card-row::-webkit-scrollbar {
+    display: none;
   }
 
   .pick-card {
