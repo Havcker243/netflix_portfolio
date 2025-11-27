@@ -1,4 +1,4 @@
-﻿# Netflix Inspired Portfolio
+﻿which is better# Netflix Inspired Portfolio
 
 A Netflix-style single-page application that guides visitors through a cinematic intro, persona-based profile selector, and content-rich sections (experience, projects, skills, awards, etc.). Content now lives in Supabase, so you can tweak copy/media without redeploying the frontend.
 
