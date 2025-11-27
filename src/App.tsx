@@ -15,6 +15,7 @@ import Reading from './pages/Reading';
 import Blogs from './pages/Blogs';
 import Certifications from './pages/Certifications';
 import Awards from './pages/Awards';
+import AskMeAnything from './pages/AskMeAnything';
 
 const App: React.FC = () => {
   return (
@@ -33,6 +34,7 @@ const App: React.FC = () => {
       <Route path="/blogs" element={<Layout><Blogs /></Layout>} />
       <Route path="/certifications" element={<Layout><Certifications /></Layout>} />
       <Route path="/awards" element={<Layout><Awards /></Layout>} />
+      <Route path="/ask-me" element={<Layout><AskMeAnything /></Layout>} />
     </Routes>
   );
 };
