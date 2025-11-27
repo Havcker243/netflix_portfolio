@@ -18,12 +18,14 @@ export interface WorkPermit {
 }
 
 export interface TimelineItem {
-  timelineType: 'work' | 'education';
+  id?: string;
+  timelineType: "work" | "education";
   name: string;
   title: string;
   techStack: string;
   summaryPoints: string[];
   dateRange: string;
+  sortOrder?: number;
 }
 
 export interface Project {
