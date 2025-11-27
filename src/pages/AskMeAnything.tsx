@@ -6,6 +6,7 @@ import { getSkills } from '../queries/getSkills';
 import { getProjects } from '../queries/getProjects';
 import { getContactMe } from '../queries/getContactMe';
 import { ContactMe, Project, Skill, TimelineItem } from '../types';
+import { GoogleGenAI } from '@google/genai';
 
 type ChatMessage = {
   role: 'assistant' | 'user';
@@ -16,15 +17,23 @@ const heroSummary = `Oludolapo Adegbesan is a Full Stack AI & Cloud Software Eng
 
 const githubUrl = 'https://github.com/Havcker243';
 const resumeUrl = '/Adegbesan_Oludolapo_Resume__2_.pdf';
+const geminiModel = 'gemini-2.5-flash';
+
+let ai: GoogleGenAI | null = null;
+try {
+  ai = new GoogleGenAI({});
+} catch (error) {
+  console.error('Unable to initialize Gemini client', error);
+}
+
+const initialMessage: ChatMessage = {
+  role: 'assistant',
+  content:
+    "Hi, I'm Oludolapo's AI assistant. Ask me anything about her experience, projects, or skills and I'll answer using the info on this site.",
+};
 
 const AskMeAnything: React.FC = () => {
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      role: 'assistant',
-      content:
-        "Hi, I'm Oludolapo's AI assistant. Ask me anything about her experience, projects, or skills and I'll answer using the info on this site.",
-    },
-  ]);
+  const [messages, setMessages] = useState<ChatMessage[]>([initialMessage]);
   const [input, setInput] = useState('');
   const [isThinking, setThinking] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -35,6 +44,7 @@ const AskMeAnything: React.FC = () => {
 
   useEffect(() => {
     let ignore = false;
+
     async function loadContent() {
       try {
         const [remoteTimeline, remoteSkills, remoteProjects, remoteContact] = await Promise.all([
@@ -44,12 +54,12 @@ const AskMeAnything: React.FC = () => {
           getContactMe(),
         ]);
 
-        if (!ignore) {
-          if (remoteTimeline.length) setTimelineData(remoteTimeline);
-          if (remoteSkills.length) setSkillsData(remoteSkills);
-          if (remoteProjects.length) setProjectsData(remoteProjects);
-          if (remoteContact) setContactInfo(remoteContact);
-        }
+        if (ignore) return;
+
+        if (remoteTimeline.length) setTimelineData(remoteTimeline);
+        if (remoteSkills.length) setSkillsData(remoteSkills);
+        if (remoteProjects.length) setProjectsData(remoteProjects);
+        if (remoteContact) setContactInfo(remoteContact);
       } catch (loadError) {
         console.error('Unable to load live content for AMA context', loadError);
       }
@@ -62,65 +72,46 @@ const AskMeAnything: React.FC = () => {
   }, []);
 
   const siteContext = useMemo(() => {
-    const timeline = timelineData
-      .map(item => `${item.timelineType.toUpperCase()}: ${item.title} at ${item.name}. Focus: ${item.techStack}. Highlights: ${item.summaryPoints.join(' ')}`)
-      .join('\n\n');
-
-    const skills = skillsData
-      .map(skill => `${skill.category} → ${skill.name}: ${skill.description}`)
+    const timelineSection = timelineData
+      .map(item => `${item.timelineType.toUpperCase()}: ${item.title} at ${item.name}. ${item.summaryPoints.join(' ')}`)
       .join('\n');
-
-    const projects = projectsData
-      .map(project => `${project.title}: ${project.description} (Tech: ${project.techUsed})`)
-      .join('\n');
-
-    const links = [
+    const skillsSection = skillsData.map(skill => `${skill.category} - ${skill.name}: ${skill.description}`).join('\n');
+    const projectSection = projectsData.map(project => `${project.title}: ${project.description}`).join('\n');
+    const contactSection = [
       `GitHub: ${githubUrl}`,
-      contactInfo?.linkedinLink ? `LinkedIn: ${contactInfo.linkedinLink}` : 'LinkedIn: https://www.linkedin.com/in/oludolapo-adegbesan-3168a7218/',
+      `LinkedIn: ${contactInfo?.linkedinLink ?? 'https://www.linkedin.com/in/oludolapo-adegbesan-3168a7218/'}`,
       `Resume: ${resumeUrl}`,
-      contactInfo?.email ? `Email: ${contactInfo.email}` : 'Email: dolapoadegbesan301@gmail.com',
+      `Email: ${contactInfo?.email ?? 'dolapoadegbesan301@gmail.com'}`,
+    ].join('\n');
+
+    return [
+      heroSummary,
+      `Important Links:\n${contactSection}`,
+      timelineSection && `Timeline:\n${timelineSection}`,
+      skillsSection && `Skills:\n${skillsSection}`,
+      projectSection && `Projects:\n${projectSection}`,
     ]
       .filter(Boolean)
-      .join('\n');
-
-    return `${heroSummary}\n\nImportant Links:\n${links}\n\nTimeline:\n${timeline}\n\nSkills:\n${skills}\n\nProjects:\n${projects}`;
+      .join('\n\n');
   }, [timelineData, skillsData, projectsData, contactInfo]);
 
-  const apiKey = process.env.REACT_APP_GEMINI_API_KEY;
-
   const askGemini = async (question: string) => {
-    if (!apiKey) {
-      throw new Error('Missing Gemini API key. Set REACT_APP_GEMINI_API_KEY in your env.');
+    if (!ai) {
+      throw new Error('Gemini client is not configured. Double-check the GEMINI_API_KEY env value.');
     }
 
-    const prompt = `You are a helpful career assistant representing Oludolapo Adegbesan. Answer using the following context:\n${siteContext}\n\nQuestion: ${question}`;
+    const prompt = `${siteContext}\n\nQuestion: ${question}`;
+    const response = await ai.models.generateContent({
+      model: geminiModel,
+      contents: prompt,
+    });
 
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          contents: [
-            {
-              role: 'user',
-              parts: [{ text: prompt }],
-            },
-          ],
-        }),
-      }
-    );
-
-    if (!response.ok) {
-      const info = await response.text();
-      throw new Error(info);
+    const textReply = response.text?.();
+    if (textReply && textReply.trim().length > 0) {
+      return textReply.trim();
     }
 
-    const data = await response.json();
-    const output = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-    return output ?? 'Sorry, I could not find an answer.';
+    return 'Sorry, I could not find an answer.';
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -136,8 +127,8 @@ const AskMeAnything: React.FC = () => {
     try {
       const reply = await askGemini(question);
       setMessages(prev => [...prev, { role: 'assistant', content: reply }]);
-    } catch (err: any) {
-      setError('Unable to reach the AI assistant. Please try again in a moment.');
+    } catch (err) {
+      setError('Unable to reach the AI assistant right now.');
       setMessages(prev => [
         ...prev,
         {
