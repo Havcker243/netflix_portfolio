@@ -84,6 +84,7 @@ const WorkExperience: React.FC = () => {
     async function loadTimeline() {
       try {
         const items = await getTimeline();
+        console.log("SUPABASE TIMELINE TEST:", items);
         if (!ignore && items.length) {
           setTimelineData(items);
         }

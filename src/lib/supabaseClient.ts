@@ -27,6 +27,8 @@ function applyFilters(query: FilterableQuery, filters?: Filter) {
 }
 
 export async function fetchSupabaseTable<T>(table: string, options: SupabaseFetchOptions = {}): Promise<T[]> {
+  console.log("FETCH SUPABASE TABLE CALLED WITH SELECT:", options.select);
+
   if (!supabase) {
     return [];
   }
@@ -51,7 +53,12 @@ export async function fetchSupabaseTable<T>(table: string, options: SupabaseFetc
   return (data as T[]) ?? [];
 }
 
+
 export async function fetchSupabaseSingle<T>(table: string, options?: SupabaseFetchOptions): Promise<T | null> {
   const rows = await fetchSupabaseTable<T>(table, { ...(options ?? {}), limit: 1 });
   return rows.length ? rows[0] : null;
 }
+
+console.log("SUPABASE URL:", SUPABASE_URL);
+console.log("SUPABASE KEY:", SUPABASE_ANON_KEY ? "LOADED" : "MISSING");
+console.log("HAS CONFIG:", hasSupabaseConfig);
