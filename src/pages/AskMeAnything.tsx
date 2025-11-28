@@ -13,8 +13,7 @@ type ChatMessage = {
   content: string;
 };
 
-const heroSummary = `Oludolapo Adegbesan is a Full Stack AI & Cloud Software Engineer building Netflix-style experiences, LLM copilots, Chrome extensions, and Supabase-backed data tools. She has interned with Google Privacy Sandbox, Ashoka, Propell2Excel, and HP Future of Work; fellowships include Code2040, Brilliant Black Minds, BVCC, and MLT.`;
-
+const heroSummary = `You are my AI assistant and your job is to answer questions about Oludolapo Adegbesan's experience, skills, and projects using only the information provided on this site. Provide clear and concise answers based on thier background as an Engineer. If you don't know the answer, say so politely.`;
 const githubUrl = 'https://github.com/Havcker243';
 const resumeUrl = '/Adegbesan_Oludolapo_Resume__2_.pdf';
 const geminiModel = 'gemini-2.5-flash';
@@ -147,8 +146,7 @@ const AskMeAnything: React.FC = () => {
         <p className="eyebrow">AI Career Concierge</p>
         <h1>Ask Me Anything</h1>
         <p>
-          Curious about my internships, Supabase build, or leadership work? Drop a question and this Gemini-powered bot will
-          answer using the content on this site.
+          Curious about my internships, Projects, or leadership work? Drop a question and AI would help you out
         </p>
       </section>
 
