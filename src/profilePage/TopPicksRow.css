@@ -106,6 +106,8 @@
     flex-wrap: nowrap;
     overflow-x: auto;
     padding-right: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
 
@@ -115,6 +117,14 @@
 
   .pick-card {
     flex: 0 0 80%;
+    height: 220px;
+    scroll-snap-align: start;
+  }
+}
+
+@media (max-width: 480px) {
+  .pick-card {
+    flex: 0 0 85%;
     height: 200px;
   }
 }
