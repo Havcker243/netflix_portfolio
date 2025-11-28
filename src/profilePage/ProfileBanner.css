@@ -20,6 +20,7 @@
   border-radius: 24px;
   padding: clamp(1.75rem, 3vw, 3rem);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+  border: 1px solid var(--accent-soft);
 }
 
 .banner-headline {
@@ -58,7 +59,8 @@
 }
 
 .play-button {
-  background-color: #e50914;
+  background-color: var(--accent-color);
+  color: #111;
 }
 
 .info-button {

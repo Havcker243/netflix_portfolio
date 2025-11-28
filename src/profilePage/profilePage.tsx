@@ -16,7 +16,7 @@ const ProfilePage: React.FC = () => {
     ? (profileName as ProfileType)
     : 'recruiter';
   return (
-    <main className="profile-shell">
+    <main className={`profile-shell profile-${profile}`}>
       <section className="profile-banner-wrapper">
         <ProfileBanner backgroundImageUrl={backgroundGif} />
       </section>
