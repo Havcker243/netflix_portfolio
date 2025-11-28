@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import './ContactMe.css';
 import profilePic from '../images/profile-light-formal.png';
 import { FaEnvelope, FaPhoneAlt, FaCoffee, FaLinkedin } from 'react-icons/fa';
@@ -81,3 +81,4 @@ const ContactMe: React.FC = () => {
 };
 
 export default ContactMe;
+

@@ -25,6 +25,9 @@ const iconMap: { [key: string]: JSX.Element } = {
   SiRabbitmq: <SiRabbitmq />,
   SiImessage: <SiImessage />,
   FaPython: <FaPython />,
+  FaGitAlt: <FaGitAlt />,
+  SiHtml5: <SiHtml5 />,
+  SiCss3: <SiCss3 />,
 };
 
 const fallbackSkills: Skill[] = [

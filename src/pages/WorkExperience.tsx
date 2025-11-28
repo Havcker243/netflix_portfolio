@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import { MdOutlineWork as WorkIcon } from "react-icons/md";
@@ -91,3 +91,4 @@ const WorkExperience: React.FC = () => {
 };
 
 export default WorkExperience;
+
