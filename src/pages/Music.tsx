@@ -16,7 +16,7 @@ const favoriteAlbums = [
   {
     title: 'Made in Lagos',
     artist: 'Wizkid',
-    imgSrc: 'https://images.unsplash.com/photo-1521543832200-751d31aed941?auto=format&fit=crop&w=600&q=80',
+    imgSrc: 'https://images.unsplash.com/photo-1507878866276-a947ef722fee?auto=format&fit=crop&w=600&q=80',
   },
   {
     title: 'Heaven or Las Vegas (Remaster)',

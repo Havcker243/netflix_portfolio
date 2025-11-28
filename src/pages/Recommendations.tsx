@@ -1,25 +1,60 @@
 import React from 'react';
 import './Recommendations.css';
-import chrisProfilePic from '../images/chris.jpg';
+
+const letters = [
+  {
+    title: 'Recommendation Letter 1',
+    file: 'Recommendation Letter 1.jpeg',
+    summary: 'Leadership and technical depth highlighted by mentors.',
+  },
+  {
+    title: 'Recommendation Letter 2',
+    file: 'Recommendation Letter 2.jpeg',
+    summary: 'Community organizing and student leadership accolades.',
+  },
+  {
+    title: 'Recommendation Letter 3',
+    file: 'Recommendation Letter 3.jpeg',
+    summary: 'Recognition for AI/ML experimentation and grit.',
+  },
+  {
+    title: 'Recommendation Letter 4',
+    file: 'Recommendation Letter 4.jpeg',
+    summary: 'Multi-year character reference grounded in service.',
+  },
+];
 
 const Recommendations: React.FC = () => {
+  const basePath = `${process.env.PUBLIC_URL}/Recommedndation%20letters`;
+
   return (
-    <div className='timeline-container'>
-      <div className="recommendation-card">
-        <div className="recommendation-header">
-          <img src={chrisProfilePic} alt="Seyi Adebayo" className="profile-pic" />
-          <div>
-            <h3>Seyi Adebayo</h3>
-            <p>Engineering Manager, Google</p>
-            <p className="date">September 12, 2025</p>
-          </div>
-        </div>
-        <div className="recommendation-body">
-          <p>"Oludolapo showed up to the Google Privacy org with the curiosity and rigor of a seasoned engineer. Within weeks she delivered a Gemini-powered Chrome extension that reads and summarizes dense privacy policies entirely on-device."</p>
-          <p>"She paired that shipping mindset with real discipline: 30+ Jasmine tests, a bespoke evaluation harness for LLM prompts, and proactive reviews to keep our responses trustworthy. Every sprint, she connected the dots between user trust and technical detail."</p>
-          <p>"Beyond code, Oludolapo invests in people. She mentored other interns on debugging Chrome APIs, volunteers with Brilliant Black Minds, and shares career resources with our HBCU partner programs. Her impact is multiplicative."</p>
-          <p>"If you need someone who can architect AI-assisted experiences and amplify every room she enters, bring Oludolapo onto your team."</p>
-        </div>
+    <div className="recommendations-shell">
+      <header className="recommendations-hero">
+        <p className="eyebrow">Receipts from mentors & partners</p>
+        <h1>Recommendation Letters</h1>
+        <p>Downloadable scans from professors, program leads, and clients—hosted right in this portfolio.</p>
+      </header>
+
+      <div className="letters-grid">
+        {letters.map(letter => (
+          <article key={letter.file} className="letter-card">
+            <div className="letter-frame">
+              <img src={`${basePath}/${encodeURIComponent(letter.file)}`} alt={letter.title} loading="lazy" />
+            </div>
+            <footer className="letter-meta">
+              <h3>{letter.title}</h3>
+              <p>{letter.summary}</p>
+              <a
+                href={`${basePath}/${encodeURIComponent(letter.file)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+              >
+                View / Download
+              </a>
+            </footer>
+          </article>
+        ))}
       </div>
     </div>
   );

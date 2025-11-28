@@ -24,12 +24,12 @@ const Browse: React.FC = () => {
     {
       name: "stalker",
       image: redImage,
-      backgroundGif: "https://media.giphy.com/media/3og0IPGMlYhQ7QnQ52/giphy.gif" // Noir silhouette for mysterious watcher
+      backgroundGif: "https://media.giphy.com/media/l4FGuhL4U2WyjdkaY/giphy.gif" // Noir silhouette for mysterious watcher
     },
     {
       name: "adventurer",
       image: yellowImage,
-      backgroundGif: "https://media.giphy.com/media/3o7TKsQ6m5grs05Zks/giphy.gif" // Tomb-raiding torch-lit exploration
+      backgroundGif: "https://media.giphy.com/media/xT0xelrGA7QtTNPaoA/giphy.gif" // Tomb-raiding torch-lit exploration
     },
   ];
 

@@ -14,7 +14,7 @@ const bannerData: ProfileBannerType = {
   },
   linkedinLink: 'https://www.linkedin.com/in/oludolapo-adegbesan-3168a7218/',
   profileSummary:
-    'Experienced software engineer focused on distributed systems, AI copilots, and cloud-native services. I build LLM-powered Chrome extensions, LangChain automation, and React experiences backed by Python, TypeScript, Flask, Node.js, MongoDB, Redis, and AWS. From Gemini-driven privacy tooling at Google to GPT copilots for HP FOWA, I ship scalable APIs, craft amazing developer experiences, and center inclusive design in every release.',
+    "From building privacy tools at Google to creating GPT agents that help HBCU students find housing and jobs, I design software that makes complex things simple. I work across the stack (React, Python, TypeScript, cloud platforms) crafting AI powered products that scale cleanly and feel effortless to use. Code2040, MLT, and BVCC taught me that engineering isn't just about shipping code; it's about understanding who you build for and opening doors with every release.",
 };
 
 interface ProfileBannerProps {

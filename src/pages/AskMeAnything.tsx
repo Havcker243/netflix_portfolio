@@ -6,8 +6,7 @@ import { getSkills } from '../queries/getSkills';
 import { getProjects } from '../queries/getProjects';
 import { getContactMe } from '../queries/getContactMe';
 import { ContactMe, Project, Skill, TimelineItem } from '../types';
-import { GoogleGenAI } from '@google/genai';
-
+import { askGemini } from '../lib/askGemini';
 type ChatMessage = {
   role: 'assistant' | 'user';
   content: string;
@@ -17,13 +16,6 @@ const heroSummary = `You are my AI assistant and your job is to answer questions
 const githubUrl = 'https://github.com/Havcker243';
 const resumeUrl = '/Adegbesan_Oludolapo_Resume__2_.pdf';
 const geminiModel = 'gemini-2.5-flash';
-
-let ai: GoogleGenAI | null = null;
-try {
-  ai = new GoogleGenAI({});
-} catch (error) {
-  console.error('Unable to initialize Gemini client', error);
-}
 
 const initialMessage: ChatMessage = {
   role: 'assistant',
@@ -94,25 +86,6 @@ const AskMeAnything: React.FC = () => {
       .join('\n\n');
   }, [timelineData, skillsData, projectsData, contactInfo]);
 
-  const askGemini = async (question: string) => {
-    if (!ai) {
-      throw new Error('Gemini client is not configured. Double-check the GEMINI_API_KEY env value.');
-    }
-
-    const prompt = `${siteContext}\n\nQuestion: ${question}`;
-    const response = await ai.models.generateContent({
-      model: geminiModel,
-      contents: prompt,
-    });
-
-    const textReply = response.text?.();
-    if (textReply && textReply.trim().length > 0) {
-      return textReply.trim();
-    }
-
-    return 'Sorry, I could not find an answer.';
-  };
-
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError(null);
@@ -124,7 +97,8 @@ const AskMeAnything: React.FC = () => {
     setThinking(true);
 
     try {
-      const reply = await askGemini(question);
+      const prompt = `${siteContext}\n\nQuestion: ${question}`;
+      const reply = await askGemini(prompt, geminiModel);
       setMessages(prev => [...prev, { role: 'assistant', content: reply }]);
     } catch (err) {
       setError('Unable to reach the AI assistant right now.');

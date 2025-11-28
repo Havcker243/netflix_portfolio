@@ -40,23 +40,36 @@ const books = [
   },
 ];
 
+const showComingSoon = true;
+
 const Reading: React.FC = () => {
+  const hasBooks = !showComingSoon && books.length > 0;
+
   return (
     <div className="reading-container">
       <h2 className="reading-title">Books that keep me curious</h2>
       <p className="reading-intro">I rotate between tech craft, creativity, and memoirs so my engineering stays human.</p>
-      <div className="books-grid">
-        {books.map((book, index) => (
-          <div key={index} className="book-card" style={{ '--delay': `${index * 0.1}s` } as React.CSSProperties}>
-            <img src={book.imgSrc} alt={book.title} className="book-cover" />
-            <div className="book-info">
-              <h3 className="book-title">{book.title}</h3>
-              <h4 className="book-author">{book.author}</h4>
-              <p className="book-description">{book.description}</p>
+
+      {hasBooks ? (
+        <div className="books-grid">
+          {books.map((book, index) => (
+            <div key={index} className="book-card" style={{ '--delay': `${index * 0.1}s` } as React.CSSProperties}>
+              <img src={book.imgSrc} alt={book.title} className="book-cover" />
+              <div className="book-info">
+                <h3 className="book-title">{book.title}</h3>
+                <h4 className="book-author">{book.author}</h4>
+                <p className="book-description">{book.description}</p>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <div className="reading-placeholder">
+          <p>Reading list refresh is coming soon.</p>
+          <p>Sharing the essays, memoirs, and zines that are shaping my perspective next.</p>
+          <span>Connect on LinkedIn for bite-sized reviews until the full list drops.</span>
+        </div>
+      )}
     </div>
   );
 };
