@@ -1,7 +1,7 @@
 import React from 'react';
 import './ContactMe.css';
 import profilePic from '../images/profile-light-formal.png';
-import { FaEnvelope, FaPhoneAlt, FaCoffee, FaLinkedin } from 'react-icons/fa';
+import { FaCoffee, FaLinkedin } from 'react-icons/fa';
 import { ContactMe as IContactMe } from '../types';
 
 const contactInfo: IContactMe = {
@@ -12,8 +12,8 @@ const contactInfo: IContactMe = {
     'Experienced software engineer focused on distributed systems, AI copilots, and cloud-native services. I build LLM-powered Chrome extensions, LangChain automation, and React experiences backed by Python, TypeScript, Flask, Node.js, MongoDB, Redis, and AWS. From Gemini-driven privacy tooling at Google to GPT copilots for HP FOWA, I ship scalable APIs, craft amazing developer experiences, and center inclusive design in every release.',
   companyUniversity: 'Fisk University · B.S. Computer Science · Dec 2026',
   linkedinLink: 'https://www.linkedin.com/in/oludolapo-adegbesan-3168a7218/',
-  email: 'dolapoadegbesan301@gmail.com',
-  phoneNumber: '+1 (509) 919-5430',
+  email: '',
+  phoneNumber: '',
 };
 
 const ContactMe: React.FC = () => {
@@ -24,16 +24,13 @@ const ContactMe: React.FC = () => {
         <h1>Full Stack AI & Cloud Software Engineer</h1>
         <p className="hero-copy">{contactInfo.summary}</p>
         <div className="hero-buttons">
-          <a href={`mailto:${contactInfo.email}`} className="hero-button primary">
-            Email Me
-          </a>
           <a
             href={contactInfo.linkedinLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="hero-button secondary"
+            className="hero-button primary"
           >
-            <FaLinkedin /> LinkedIn
+            <FaLinkedin /> Connect on LinkedIn
           </a>
         </div>
       </section>
@@ -59,15 +56,14 @@ const ContactMe: React.FC = () => {
 
         <div className="contact-details">
           <div className="contact-item">
-            <FaEnvelope className="contact-icon" />
-            <a href={`mailto:${contactInfo.email}`} className="contact-link">
-              {contactInfo.email}
-            </a>
-          </div>
-          <div className="contact-item">
-            <FaPhoneAlt className="contact-icon" />
-            <a href={`tel:${contactInfo.phoneNumber}`} className="contact-link">
-              {contactInfo.phoneNumber}
+            <FaLinkedin className="contact-icon" />
+            <a
+              href={contactInfo.linkedinLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-link"
+            >
+              Message me on LinkedIn
             </a>
           </div>
           <div className="contact-fun">

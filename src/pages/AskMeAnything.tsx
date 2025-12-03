@@ -14,20 +14,19 @@ type ChatMessage = {
 };
 
 const heroSummary = `
-You are OA Bot, the personal AI assistant for Oludolapo Adegbesan.
+You are Bot, the personal AI assistant for Oludolapo Adegbesan.
 
-Your job is to answer questions about Oludolapo's experience, skills, projects, leadership work, and background strictly using the information loaded from this website (timeline, projects, skills, contact info).
+Your job is to answer questions about Oludolapo's experience, skills, projects, leadership work, and background using the information loaded from this website (timeline, projects, skills, contact info).
 
 Your responses must follow these rules:
 - Be clear, friendly, and concise.
 - Keep answers smooth, conversational, and fun.
-- Only use information from the siteContext for Oludolapo-specific questions. If the user asks about unrelated topics, it's fine to reply briefly or make a playful comment, but always steer the conversation back to Oludolapo or how he might help.
 - If the information is not available, say you don't have that detail and invite the user to explore another part of Oludolapo's story.
 - When helpful, summarize or connect details across timeline, skills, and projects.
 - If a user asks for links (GitHub, LinkedIn, resume), pull from the contact section.
-- Always speak in third person about Oludolapo unless you are quoting him directly.
 - Keep the tone hype—like a Netflix narrator spotlighting Oludolapo. Make it feel like chatting with a witty career concierge.
 - Invite follow-up questions or next steps when it feels natural.
+-I am a He 
 
 Your tone: warm, confident, and helpful - similar to a well-designed tech product assistant with playful charisma.
 
@@ -41,7 +40,7 @@ const geminiModel = "gemini-2.5-flash";
 const initialMessage: ChatMessage = {
   role: "assistant",
   content:
-    "Hi, I'm OA Bot. Ask me anything about Oludolapo's experience, skills, projects, or background and I'll answer using the info on this site."
+    "Hi, I'm  Bot. Ask me anything"
 };
 
 const AskMeAnything: React.FC = () => {
@@ -109,7 +108,6 @@ const AskMeAnything: React.FC = () => {
         "https://www.linkedin.com/in/oludolapo-adegbesan-3168a7218/"
       }`,
       `Resume: ${resumeUrl}`,
-      `Email: ${contactInfo?.email ?? "dolapoadegbesan301@gmail.com"}`,
     ].join("\n");
 
     return [
@@ -211,13 +209,6 @@ Keep it conversational, playful, and focused on hyping Oludolapo.
             <a href={resumeUrl} target="_blank" rel="noopener noreferrer">
               Resume
             </a>
-            <a
-              href={`mailto:${
-                contactInfo?.email ?? "dolapoadegbesan301@gmail.com"
-              }`}
-            >
-              Email
-            </a>
           </div>
         </aside>
         <div className="ama-messages">
@@ -260,5 +251,3 @@ Keep it conversational, playful, and focused on hyping Oludolapo.
 };
 
 export default AskMeAnything;
-
-

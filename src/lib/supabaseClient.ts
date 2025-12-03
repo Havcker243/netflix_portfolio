@@ -58,7 +58,3 @@ export async function fetchSupabaseSingle<T>(table: string, options?: SupabaseFe
   const rows = await fetchSupabaseTable<T>(table, { ...(options ?? {}), limit: 1 });
   return rows.length ? rows[0] : null;
 }
-
-console.log("SUPABASE URL:", SUPABASE_URL);
-console.log("SUPABASE KEY:", SUPABASE_ANON_KEY ? "LOADED" : "MISSING");
-console.log("HAS CONFIG:", hasSupabaseConfig);
