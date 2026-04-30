@@ -108,100 +108,41 @@ interface SpotlightProject extends SpotlightProjectConfig {
 
 const curatedProjects: SpotlightProjectConfig[] = [
   {
-    title: 'Bluealpha',
-    repoSlug: 'Bluealpha',
+    title: 'APLITE',
+    repoSlug: 'APLITE',
     summary:
-      'Data and ML observability cockpit that ingests warehouse metrics, annotates anomalies, and packages playbooks for Ops so incidents shrink to minutes instead of hours.',
-    techUsed: ['Python', 'FastAPI', 'PostgreSQL'],
-    githubUrl: 'https://github.com/Havcker243/Bluealpha',
+      'Payment identity infrastructure for verified businesses, with KYB onboarding, encrypted payment accounts, child UPIs, and a dashboard for resolving trusted payment identities.',
+    techUsed: ['TypeScript', 'React', 'Next.js', 'Supabase', 'PostgreSQL'],
+    githubUrl: 'https://github.com/Havcker243/APLITE',
+    liveUrl: 'https://aplite-dhsa.vercel.app',
     image: {
-      url: 'https://images.unsplash.com/photo-1454165205744-3b78555e5572?auto=format&fit=crop&w=1200&q=80',
-      alt: 'Analytics dashboard concept art',
+      url: 'https://raw.githubusercontent.com/Havcker243/APLITE/main/pics/Dashboard.png',
+      alt: 'APLITE dashboard screenshot',
     },
   },
   {
-    title: 'Concilio Compass Connect',
-    repoSlug: 'concilio-compass-connect',
+    title: 'Recursive Agent Framework',
+    repoSlug: 'Recursive-Agent-Framework-',
     summary:
-      "Scheduling + case management hub for Concilio's Compass program -- staff log sessions, track volunteers, and broadcast resource drops to families through a single React dashboard.",
-    techUsed: ['React', 'TypeScript', 'Supabase'],
-    githubUrl: 'https://github.com/Havcker243/concilio-compass-connect',
+      'Recursive multi-agent orchestration framework for long-horizon agentic tasks, with proposal/vote flows, sibling dependencies, memory, and context refinement layers.',
+    techUsed: ['Python', 'FastAPI', 'React', 'TypeScript'],
+    githubUrl: 'https://github.com/Havcker243/Recursive-Agent-Framework-',
     image: {
-      url: 'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80',
-      alt: 'Community collaboration placeholder',
+      url: 'https://raw.githubusercontent.com/Havcker243/Recursive-Agent-Framework-/main/Full%20impementation.png',
+      alt: 'Recursive Agent Framework architecture screenshot',
     },
   },
   {
-    title: 'SafePass',
-    repoSlug: 'safepass-2',
+    title: 'Plan My Path / FiskGrad',
+    repoSlug: 'plan-my-path',
     summary:
-      'Emergency-first "digital vault" with a panic button, GPS broadcasting, Leaflet community alerts, and a secure document locker built in React + Capacitor for Android/iOS.',
-    techUsed: ['TypeScript', 'React', 'Tailwind CSS', 'Leaflet'],
-    githubUrl: 'https://github.com/Havcker243/safepass-2',
+      'Academic planning system for Fisk students that maps multi-semester course plans, tracks graduation progress, validates prerequisites, and manages student profiles.',
+    techUsed: ['React', 'TypeScript', 'Tailwind CSS', 'FastAPI', 'Supabase'],
+    githubUrl: 'https://github.com/Havcker243/plan-my-path',
+    liveUrl: 'https://plan-my-path.vercel.app',
     image: {
-      url: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80',
-      alt: 'Emergency response concept art',
-    },
-  },
-  {
-    title: 'CleanSkys',
-    repoSlug: 'cleanskys',
-    summary:
-      'AI-assisted weather and pollution radar that overlays storm severity, AQI breakpoints, and contextual tips on a Netflix-like dashboard for local governments.',
-    techUsed: ['React', 'TypeScript', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/Havcker243/cleanskys',
-    image: {
-      url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80',
-      alt: 'Weather visualization placeholder',
-    },
-  },
-  {
-    title: 'Mafia Manager',
-    repoSlug: 'Mafia-Game-',
-    summary:
-      'C#/.NET desktop recreation of Mafia with animated windows, soundtrack cues, narrator voiceovers, and role-management UX tuned for parties.',
-    techUsed: ['C#', '.NET'],
-    githubUrl: 'https://github.com/Havcker243/Mafia-Game-',
-    image: {
-      url: 'https://raw.githubusercontent.com/Havcker243/Mafia-Game-/main/image/README/1707081041665.png',
-      alt: 'Mafia Manager main window',
-    },
-  },
-  {
-    title: 'Studyme',
-    repoSlug: 'Studyme-',
-    summary:
-      'AI co-pilot that ingests PDFs, atomizes them into flashcards/insights, and pairs the lesson plan with web research suggestions for each module.',
-    techUsed: ['React', 'TypeScript', 'Supabase', 'OpenAI'],
-    githubUrl: 'https://github.com/Havcker243/Studyme-',
-    image: {
-      url: 'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80',
-      alt: 'Studyme concept placeholder',
-    },
-  },
-  {
-    title: 'Object & Emotion Detection',
-    repoSlug: 'Object-and-emotion_Detection',
-    summary:
-      'YOLOv3-based multi-object tracker that layers Haar cascades and a CNN sentiment head to color-code faces by emotion in real time.',
-    techUsed: ['Python', 'TensorFlow', 'OpenCV', 'YOLOv3'],
-    githubUrl: 'https://github.com/Havcker243/Object-and-emotion_Detection',
-    image: {
-      url: 'https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1200&q=80',
-      alt: 'Neural network concept art',
-    },
-  },
-  {
-    title: 'Netflix-Inspired Portfolio',
-    repoSlug: 'netflix_portfolio',
-    summary:
-      'A cinematic single-page experience inspired by Netflix where visitors pick a persona tile and explore projects, recommendations, AMA responses, and more backed by Supabase + Gemini.',
-    techUsed: ['React', 'TypeScript', 'Supabase', 'OpenAI'],
-    githubUrl: 'https://github.com/Havcker243/netflix_portfolio',
-    liveUrl: 'https://oludolapo.vercel.app/',
-    image: {
-      url: 'https://raw.githubusercontent.com/Havcker243/netflix_portfolio/main/image.png',
-      alt: 'Netflix inspired portfolio splash page',
+      url: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80',
+      alt: 'Academic planning workspace',
     },
   },
   {
@@ -218,18 +159,6 @@ const curatedProjects: SpotlightProjectConfig[] = [
     },
   },
   {
-    title: 'PathfinderGPT',
-    repoSlug: 'PathfinderGPT-3.5',
-    summary:
-      'Career roadmap assistant with a React front end and Flask API that uses OpenAI prompts to generate job matches plus personalized academic plans for undecided college students.',
-    techUsed: ['React', 'Flask.py', 'OpenAI', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/Havcker243/PathfinderGPT-3.5',
-    image: {
-      url: 'https://raw.githubusercontent.com/Havcker243/PathfinderGPT-3.5/main/image/README/1723320830367.png',
-      alt: 'PathfinderGPT dashboard layout',
-    },
-  },
-  {
     title: 'Community Reach',
     repoSlug: 'Community-Reach-',
     summary:
@@ -243,6 +172,30 @@ const curatedProjects: SpotlightProjectConfig[] = [
     },
   },
   {
+    title: 'Mafia Manager',
+    repoSlug: 'Mafia-Game-',
+    summary:
+      'C#/.NET desktop recreation of Mafia with animated windows, soundtrack cues, narrator voiceovers, and role-management UX tuned for parties.',
+    techUsed: ['C#', '.NET'],
+    githubUrl: 'https://github.com/Havcker243/Mafia-Game-',
+    image: {
+      url: 'https://raw.githubusercontent.com/Havcker243/Mafia-Game-/main/image/README/1707081041665.png',
+      alt: 'Mafia Manager main window',
+    },
+  },
+  {
+    title: 'PathfinderGPT',
+    repoSlug: 'PathfinderGPT-3.5',
+    summary:
+      'Career roadmap assistant with a React front end and Flask API that uses OpenAI prompts to generate job matches plus personalized academic plans for undecided college students.',
+    techUsed: ['React', 'Flask.py', 'OpenAI', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/Havcker243/PathfinderGPT-3.5',
+    image: {
+      url: 'https://raw.githubusercontent.com/Havcker243/PathfinderGPT-3.5/main/image/README/1723320830367.png',
+      alt: 'PathfinderGPT dashboard layout',
+    },
+  },
+  {
     title: 'Text Frequency Analyzer',
     repoSlug: 'Textbased-predictor',
     summary:
@@ -252,6 +205,55 @@ const curatedProjects: SpotlightProjectConfig[] = [
     image: {
       url: 'https://raw.githubusercontent.com/Havcker243/Textbased-predictor/main/image/1718101862362.png',
       alt: 'Text Frequency Analyzer CLI screenshot',
+    },
+  },
+  {
+    title: 'Pong Game on FPGA',
+    repoSlug: 'PingPong-Game-',
+    summary:
+      'FPGA Pong implementation with VGA sync, sliding paddles, box generation, hardware diagrams, and module-level documentation for the game loop.',
+    techUsed: ['VHDL'],
+    githubUrl: 'https://github.com/Havcker243/PingPong-Game-',
+    image: {
+      url: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
+      alt: 'FPGA electronics hardware',
+    },
+  },
+  {
+    title: 'Netflix-Inspired Portfolio',
+    repoSlug: 'netflix_portfolio',
+    summary:
+      'A cinematic single-page experience inspired by Netflix where visitors pick a persona tile and explore projects, recommendations, AMA responses, and more backed by Supabase + Gemini.',
+    techUsed: ['React', 'TypeScript', 'Supabase', 'OpenAI'],
+    githubUrl: 'https://github.com/Havcker243/netflix_portfolio',
+    liveUrl: 'https://oludolapo.vercel.app/',
+    image: {
+      url: 'https://raw.githubusercontent.com/Havcker243/netflix_portfolio/main/image.png',
+      alt: 'Netflix inspired portfolio splash page',
+    },
+  },
+  {
+    title: 'CleanSkys',
+    repoSlug: 'cleanskys',
+    summary:
+      'Weather and environmental visibility project intended to surface cleaner-sky insights through an interactive web application.',
+    techUsed: ['JavaScript', 'React'],
+    githubUrl: 'https://github.com/Havcker243/cleanskys',
+    image: {
+      url: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80',
+      alt: 'Clear sky landscape',
+    },
+  },
+  {
+    title: 'Object & Emotion Detection',
+    repoSlug: 'Object-and-emotion_Detection',
+    summary:
+      'Computer vision experiment for detecting objects and recognizing emotions with Python-based ML tooling.',
+    techUsed: ['Python', 'TensorFlow', 'OpenCV', 'YOLOv3'],
+    githubUrl: 'https://github.com/Havcker243/Object-and-emotion_Detection',
+    image: {
+      url: 'https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=1200&q=80',
+      alt: 'Computer vision concept',
     },
   },
 ];
