@@ -4,7 +4,6 @@ import { FaReact, FaNodeJs, FaAws, FaDatabase, FaDocker, FaAngular, FaGithub, Fa
 import { SiRubyonrails, SiPostgresql, SiMongodb, SiMaterialdesign, SiHtml5, SiCss3, SiJquery, SiAwsamplify, SiFirebase, SiTerraform, SiArgo, SiCplusplus, SiFlask, SiLeaflet, SiGooglemaps, SiSupabase, SiOpenai, SiTailwindcss, SiTypescript, SiFastapi, SiTensorflow, SiOpencv, SiCsharp, SiDotnet } from 'react-icons/si';
 import { GrDeploy, GrKubernetes } from "react-icons/gr";
 
-const githubUsername = 'Havcker243';
 const githubToken = process.env.REACT_APP_GITHUB_TOKEN;
 const githubApiHeaders: HeadersInit = githubToken
   ? {
@@ -14,12 +13,6 @@ const githubApiHeaders: HeadersInit = githubToken
   : {
       Accept: 'application/vnd.github+json',
     };
-const githubRawHeaders: HeadersInit = githubToken
-  ? {
-      Accept: 'text/plain',
-      Authorization: `Bearer ${githubToken}`,
-    }
-  : { Accept: 'text/plain' };
 
 const techIcons: { [key: string]: JSX.Element } = {
   "ReactJS": <FaReact />,
@@ -282,48 +275,10 @@ const formatUpdatedDate = (value?: string | null) => {
   return new Date(value).toLocaleDateString();
 };
 
-interface ReadmeDetails {
-  summary?: string;
-  image?: {
-    url: string;
-    alt?: string;
-  };
-}
-
-const extractSummaryFromMarkdown = (markdown: string): string | null => {
-  const sanitized = markdown
-    .replace(/```[\s\S]*?```/g, '')
-    .replace(/~~~[\s\S]*?~~~/g, '');
-  const blocks = sanitized.split(/\n\s*\n/).map(block => block.trim()).filter(Boolean);
-  for (const block of blocks) {
-    if (!block) continue;
-    if (block.startsWith('#') || block.startsWith('![') || block.startsWith('<') || block.startsWith('|')) {
-      continue;
-    }
-    return block.replace(/\r?\n/g, ' ');
-  }
-  return null;
-};
-
-const extractFirstImageFromMarkdown = (markdown: string, basePath: string) => {
-  const imageRegex = /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/m;
-  const match = imageRegex.exec(markdown);
-  if (!match) return null;
-  const [, altText, rawUrl] = match;
-  const normalizedUrl = rawUrl.startsWith('http')
-    ? rawUrl
-    : `${basePath}${rawUrl.replace(/^\.?\//, '')}`;
-  return {
-    url: normalizedUrl,
-    alt: altText || undefined,
-  };
-};
-
 const Projects: React.FC = () => {
   const [repos, setRepos] = useState<GitHubRepo[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [projectReadmes, setProjectReadmes] = useState<Record<string, ReadmeDetails>>({});
 
   useEffect(() => {
     async function fetchRepos() {
@@ -357,50 +312,6 @@ const Projects: React.FC = () => {
     }, {});
   }, [repos]);
 
-  useEffect(() => {
-    if (!repos.length) return;
-    let cancelled = false;
-    async function hydrateReadmes() {
-      const results = await Promise.all(
-        curatedProjects.map(async project => {
-          const repoMatch = repoLookup[project.repoSlug.toLowerCase()];
-          if (!repoMatch) return null;
-          const branch = repoMatch.default_branch || 'main';
-          try {
-            const response = await fetch(
-              `https://raw.githubusercontent.com/${githubUsername}/${project.repoSlug}/${branch}/README.md`,
-              { headers: githubRawHeaders }
-            );
-            if (!response.ok) return null;
-            const markdown = await response.text();
-            const summary = extractSummaryFromMarkdown(markdown) || undefined;
-            const image = extractFirstImageFromMarkdown(
-              markdown,
-              `https://raw.githubusercontent.com/${githubUsername}/${project.repoSlug}/${branch}/`
-            ) || undefined;
-            return {
-              slug: project.repoSlug.toLowerCase(),
-              details: { summary, image },
-            };
-          } catch {
-            return null;
-          }
-        })
-      );
-      if (cancelled) return;
-      const nextDetails: Record<string, ReadmeDetails> = {};
-      results.forEach(entry => {
-        if (!entry) return;
-        nextDetails[entry.slug] = entry.details;
-      });
-      setProjectReadmes(nextDetails);
-    }
-    hydrateReadmes();
-    return () => {
-      cancelled = true;
-    };
-  }, [repos, repoLookup]);
-
   const curatedRepoNames = useMemo(() => {
     return new Set(curatedProjects.map(project => project.repoSlug.toLowerCase()));
   }, []);
@@ -409,19 +320,18 @@ const Projects: React.FC = () => {
     return curatedProjects.map(project => {
       const slug = project.repoSlug.toLowerCase();
       const repoMatch = repoLookup[slug];
-      const readmeDetails = projectReadmes[slug];
       return {
         ...project,
-        description: readmeDetails?.summary || repoMatch?.description || project.summary,
+        description: project.summary,
         updatedAt: repoMatch?.pushed_at ?? null,
         stars: repoMatch?.stargazers_count ?? null,
         topics: repoMatch?.topics ?? [],
         liveUrl: repoMatch?.homepage || project.liveUrl || undefined,
         githubUrl: repoMatch?.html_url ?? project.githubUrl,
-        image: readmeDetails?.image ?? project.image,
+        image: project.image,
       };
     });
-  }, [projectReadmes, repoLookup]);
+  }, [repoLookup]);
 
   const repoSamples = useMemo(() => {
     return repos.filter(repo => !curatedRepoNames.has(repo.name.toLowerCase())).slice(0, 9);
