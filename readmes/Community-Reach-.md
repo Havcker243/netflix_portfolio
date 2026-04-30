@@ -1,106 +1,125 @@
 # Community Reach
 
-## Table of Contents
+Community Reach is a civic technology platform designed to help people discover local events, host community gatherings, and connect with others nearby.
 
-* Aim
-* Functions
-* Description
-* How to run
-* Progress
-* Future Features
+The project was built to reduce isolation and make it easier for students, neighbors, schools, organizations, and local groups to find meaningful ways to participate in their communities.
 
-## Aim
+## Project Purpose
 
-**Community Reach** is a platform designed to bridge communication gaps and foster social interactions within communities, businesses, and schools. Our overarching goal is to combat feelings of isolation and make it easier for people to connect with others. The platform aims to:
+Community Reach exists because many people want to be involved but do not always know where to start. Local events are often scattered across group chats, flyers, social media posts, and disconnected websites.
 
-1. Alleviate the "imposter syndrome" many individuals experience.
-2. Facilitate easy and approachable ways for people to step out and connect with others.
-3. Serve as a primary source for community events and gatherings.
+This project brings that information into one place.
 
-## Function
+The goal is simple: make local connection easier, more visible, and more approachable.
 
-The website operates as a centralized hub for community event information. Its core functions include:
+## Main Features
 
-1. Providing a comprehensive list of events happening within a user's community.
-2. Allowing users to host or promote their events to gain more visibility.
-3. Offering a search function to identify events based on location or interest.
+1. Event discovery
 
-### Description
+Users can browse community events and see key details such as event name, date, location, and point of contact.
+
+2. Event hosting
+
+Users can submit events through a form so their gatherings can reach a wider audience.
+
+3. Location-based search
+
+Users can search for events by location and discover activities happening near them.
+
+4. Mood-based discovery
+
+The project includes an experimental page for recommending events based on user interests and mood.
+
+5. Community-first design
+
+The experience is built around accessibility, clarity, and helping people feel less intimidated about joining new spaces.
 
 ## Pages
 
-**Community Reach** consists of five key pages, each serving a specific purpose:
-
 ### Home Page
 
-* **Description** : The Home Page serves as the platform's welcoming introduction, providing a brief overview of its features and functionalities.
-* **Key Features** :
-* Overview of the platform.
-* Highlighting key features and benefits.
-* Sign-in options for existing users.(future feature )
+The home page introduces the platform and explains what Community Reach helps users do.
 
-![1704745104591](image/README/1704745104591.png)
+It gives visitors a quick overview of the platform, its purpose, and the main actions available.
+
+![Community Reach home page](image/README/1704745104591.png)
 
 ### Host an Event Page
 
-* **Description** : The Host an Event Page is designed for users who want to create and promote their events. It's a form-based page where users can provide detailed information about their event.
-* **Key Features** :
-* Event creation form.
-* Input fields for event details: Event name , Event description, event coordinator email , event coordinator email and more .
-* Event submission functionality.
-* ![1704747729879](image/README/1704747729879.png)
+The host page lets users create and promote an event by entering event details into a form.
 
-### EventFinder
+The form collects information such as event name, event description, coordinator email, date, address, and other event details.
 
-* **Description** : The Location Finder Page serves a dual function. Users can use it to discover events happening in their desired location, and clicking on a specific event opens directions to that event on Google Maps.
-* **Key Features** :
-* Location search bar.
-* Python script connecting the search bar to the database hosted on AWS.
-* Event listings with links to Google Maps directions.( future feature )
-* ![1704745176484](image/README/1704745176484.png)
+![Host an event page](image/README/1704747729879.png)
+
+### Event Finder Page
+
+The event finder page helps users search for events by location.
+
+The page connects the search experience to backend data and is intended to support map-based directions through Google Maps.
+
+![Event finder page](image/README/1704745176484.png)
 
 ### Events Page
 
-* **Description** : The Events Page is a crucial component of the platform, offering users a comprehensive list of 9 of the earliest community events. It ensures users are well-informed about significant happenings in their area.
-* **Key Features** :
-* Event descriptions.
-* Location details with direct links for navigation.
-* Point of contact information( the event name , Id  , date and address ).'
+The events page displays a list of upcoming community events.
 
-### Mood-based Events
+Each event includes relevant details such as event name, event ID, date, address, and contact information.
 
-* **Description** : The Mood-based Events Page enhances user experience by suggesting events based on a user's interests and mood, providing personalized event recommendations.
-* **Key Features** :
-* Mood-based event suggestions based on pictures
-* Personalized event recommendations tailored to user preferences.( working on that)
-* Enhances user engagement and event discovery.
+### Mood-Based Events Page
 
-  ![1704747789810](image/README/1704747789810.png)
+The mood-based events page explores personalized recommendations based on user interest and mood.
 
-## How to Run
+This feature is still evolving, but the goal is to make event discovery feel more personal and engaging.
 
-1. Clone this repository to your local machine.
-2. Ensure you have Python and Flask installed.
-3. Navigate to the project directory in your terminal.
-4. Run the following command to start the application:
-   <pre><div class="bg-black rounded-md"><div class="flex items-center relative text-gray-200 bg-gray-800 dark:bg-token-surface-primary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><button class="flex gap-1 items-center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C10.8954 4 10 4.89543 10 6H14C14 4.89543 13.1046 4 12 4ZM8.53513 4C9.22675 2.8044 10.5194 2 12 2C13.4806 2 14.7733 2.8044 15.4649 4H17C18.6569 4 20 5.34315 20 7V19C20 20.6569 18.6569 22 17 22H7C5.34315 22 4 20.6569 4 19V7C4 5.34315 5.34315 4 7 4H8.53513ZM8 6H7C6.44772 6 6 6.44772 6 7V19C6 19.5523 6.44772 20 7 20H17C17.5523 20 18 19.5523 18 19V7C18 6.44772 17.5523 6 17 6H16C16 7.10457 15.1046 8 14 8H10C8.89543 8 8 7.10457 8 6Z" fill="currentColor"></path></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs">python flask.py
-   </code></div></div></pre>
-5. Open your web browser and go to `http://localhost:5000` to access the application.
+![Mood-based events page](image/README/1704747789810.png)
 
-## Progress
+## Technology
 
-We are actively working on improving and expanding  **Community Reach** :
+Frontend: HTML, CSS, JavaScript
 
-1. Currently working on hosting the website on AWS lightsail and making a server
-2. Implemeting  the mood event page to access the database and return events based on interest to the user
-3. Adding a table to the database to store the interest of people and making a relationship between the interest table and event table
-4. Implementing the Map features by connecting with Google maps Api
-5. Implementing the website to be responsive with different device screens
+Backend: Python and Flask
 
-## Future Features
+Database: AWS-hosted data source
 
-Our plans for future enhancements include:
+Planned integrations: Google Maps API and user account support
 
-1. Adding real events to the database and also opening it up to university students for real use
-2. Add a login page and make a new account for people to be able to make new accounts for the website  for security efficnecy using  firebase
-3. Add a table to store email, username , and password in database
+## How To Run Locally
+
+1. Clone the repository.
+
+2. Install Python and Flask.
+
+3. Open the project folder in a terminal.
+
+4. Start the Flask app with this command:
+
+python flask.py
+
+5. Open this address in a browser:
+
+http://localhost:5000
+
+## Current Progress
+
+The core pages are built and the project already demonstrates event discovery, event hosting, and location-based search flows.
+
+Active work is focused on improving database relationships, adding map support, making the site responsive across screen sizes, and expanding the mood-based recommendation experience.
+
+## Future Plans
+
+1. Add real event data for university and community use.
+
+2. Add secure user accounts for event hosts and visitors.
+
+3. Store user emails, usernames, and passwords securely.
+
+4. Connect event locations to Google Maps.
+
+5. Improve mobile responsiveness.
+
+6. Expand recommendation logic for interest-based and mood-based event discovery.
+
+## Status
+
+Community Reach is an active learning and civic-tech project. It shows how a simple web platform can make local events easier to find, easier to share, and easier to attend.

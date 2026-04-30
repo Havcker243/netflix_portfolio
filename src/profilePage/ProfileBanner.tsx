@@ -10,11 +10,11 @@ const bannerData: ProfileBannerType = {
   },
   headline: 'Full Stack AI & Cloud Software Engineer',
   resumeLink: {
-    url: '/Adegbesan_Oludolapo_Resume__2_.pdf',
+    url: '/Adegbesan_Oludolapo_Resume%20(20).pdf',
   },
   linkedinLink: 'https://www.linkedin.com/in/oludolapo-adegbesan-3168a7218/',
   profileSummary:
-    "From building privacy tools at Google to creating GPT agents that help HBCU students find housing and jobs, I design software that makes complex things simple. I work across the stack (React, Python, TypeScript, cloud platforms) crafting AI powered products that scale cleanly and feel effortless to use. Code2040, MLT, and BVCC taught me that engineering isn't just about shipping code; it's about understanding who you build for and opening doors with every release.",
+    "Incoming Google Software Engineer Intern for Summer 2026 and returning Google intern with experience building privacy tooling, AI agents, and full-stack products. I work across React, Next.js, TypeScript, Python, FastAPI, Supabase, and cloud platforms to build systems that make complex workflows feel simple. From APLITE to FiskGrad and RAF, I focus on AI-powered products that are practical, secure, and built for real users.",
 };
 
 interface ProfileBannerProps {

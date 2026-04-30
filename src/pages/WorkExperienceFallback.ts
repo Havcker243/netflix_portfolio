@@ -3,15 +3,27 @@ import { TimelineItem } from '../types';
 export const fallbackTimeline: TimelineItem[] = [
   {
     timelineType: 'work',
-    name: 'Google - New York, NY',
-    title: 'Associate Software Developer Intern',
+    name: 'Google',
+    title: 'Incoming Software Engineer Intern',
+    techStack: 'Software Engineering | AI Products | Cloud Systems',
+    summaryPoints: [
+      'Selected to join Google as a Software Engineer Intern for Summer 2026.',
+      'Returning after a prior Google internship focused on privacy tooling, Gemini-powered experiences, and production reliability.',
+    ],
+    dateRange: 'May 2026',
+    sortOrder: 1,
+  },
+  {
+    timelineType: 'work',
+    name: 'Google',
+    title: 'Software Developer Intern',
     techStack: 'TypeScript | Gemini LLM | Chrome Extensions | Jasmine | Privacy',
     summaryPoints: [
       'Built a Gemini-powered Chrome extension that analyzes and summarizes privacy policies in real time without compromising on-device safety.',
       'Authored 30+ Jasmine tests and a custom evaluation pipeline comparing 5+ LLM prompts across 30 production policies to reduce hallucinations before launch.',
     ],
     dateRange: 'May 2025 - Aug 2025',
-    sortOrder: 1,
+    sortOrder: 2,
   },
   {
     timelineType: 'work',
@@ -23,18 +35,6 @@ export const fallbackTimeline: TimelineItem[] = [
       'Designed the MySQL persistence layer powering the new experience and automated ingestion routines that improved data access by 10%.',
     ],
     dateRange: 'Jun 2024 - Sep 2024',
-    sortOrder: 2,
-  },
-  {
-    timelineType: 'work',
-    name: 'HP Future of Work Academy - Remote',
-    title: 'Engineering Lead - 2nd Place Team',
-    techStack: 'Custom GPT | API Integrations | Product Discovery',
-    summaryPoints: [
-      'Led development of a GPT assistant integrated with 5 APIs (jobs, housing, resume insights) that helps HBCU students plan relocations.',
-      'Coordinated a 5-person engineering squad to test the tool with 80 students and secure 2nd place out of 15 teams.',
-    ],
-    dateRange: 'Aug 2024 - Sep 2024',
     sortOrder: 3,
   },
   {
@@ -52,10 +52,10 @@ export const fallbackTimeline: TimelineItem[] = [
   {
     timelineType: 'education',
     name: 'Fisk University - Nashville, TN',
-    title: 'B.S. Computer Science - GPA 3.58',
-    techStack: 'Windows App Dev | Data Structures | Networks | Data Management',
+    title: 'B.S. Computer Science - GPA 3.62',
+    techStack: 'Windows App Dev | Data Structures | Networks | Database Management | Computer Architecture',
     summaryPoints: [
-      'Coursework: Windows Application Development, Data Structures and Algorithms, Internet Application Development, Networks, Database Management, Digital Logic Design.',
+      'Coursework: Windows Application Development, Data Structures and Algorithms, Internet Application Development, Networks, Database Management, Digital Logic Design, Discrete Math, and Computer Architecture.',
       'Leadership: Brilliant Black Minds Ambassador, Code2040 Fellow, Propel2Excel Fellow, MLT Career Prep, NSBE, ColorStack.',
     ],
     dateRange: 'Jan 2023 - Dec 2026 (expected)',
